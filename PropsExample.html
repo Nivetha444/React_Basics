@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="http://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+    <title>Styling Functional Component</title>
+</head>
+
+<body>
+    <div id="app">React has not yet Rendered!</div>
+
+    <script type="text/babel">
+
+    var Colorspctrum = function(props){
+        var colorstyle = {
+            height: 50,
+            width: 150,
+           backgroundColor: props.color
+        }
+        return(
+    <h1 style={colorstyle}>Hi, {props.name}</h1>
+        );
+    }
+
+    //  var Red = function(){
+    //  return(
+    //  <h1 className="red">Red</h1>
+    //  );
+    //   }
+
+    //   var Green = function(){
+    //  return(
+    //  <h1 className="green">Green</h1>
+    //  );
+    //   }
+
+    //   var Blue = function(){
+    //  return(
+    //  <h1 className="blue">Blue</h1>
+    //  );
+    //   }
+
+    //   var Indigo = function(){
+    //  return(
+    //  <h1 className="indi">Indigo</h1>
+    //  );
+    //   }
+
+    //   var Pink = function(){
+    //  return(
+    //  <h1 className="pink">Pink</h1>
+    //  );
+    //   }
+            ReactDOM.render(
+                <div>
+                <Colorspctrum color="yellow" name="Yellow"/>
+                <Colorspctrum name="blue"  color="blue"/>
+                <Colorspctrum name="orange" color="orange"/>
+                <Colorspctrum name="green" color="green"/>
+                </div>,
+            document.getElementById("app")
+        );
+  
+  </script>
+</body>
+</html>
