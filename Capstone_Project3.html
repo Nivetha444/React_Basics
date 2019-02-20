@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="http://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>Styling Functional Component</title>
+</head>
+
+<body>
+    <div id="app">React has not yet Rendered!</div>
+
+    <script type="text/babel">
+
+    // function ProfilePage(props) {
+    //     var profilestyle = {
+    //         display:'inline-block',
+    //         margin:20,
+    //         height:300,
+    //         width:200,
+    //         padding:0,
+    //         backgroundColor: "#FFF",
+    //         Webkitfilter: "drop-shadow(0px 0px 5px #555)",
+    //         filter: "drop-shadow(0px 0px 5px #555)" 
+    //     }
+    //     return(
+    //         <div style={profilestyle}>
+    //         <Image img={props.img}/>
+    //         <Name name={props.name}/>
+    //         <GetConnected/>
+    //         </div>
+    //     );
+    // }
+
+
+    function ProfilePage(props) {
+        var people = props.people;
+        var peopleItem = people.map(function(person){
+            var profilestyle = {
+            display:'inline-block',
+            margin:20,
+            height:300,
+            width:200,
+            padding:0,
+            backgroundColor: "#FFF",
+            Webkitfilter: "drop-shadow(0px 0px 5px #555)",
+            filter: "drop-shadow(0px 0px 5px #555)" 
+        };
+        return <div style={profilestyle}>
+        <Image img={person.img}/>
+        <Name name={person.name}/>
+        <GetConnected/>
+        </div>
+        });
+        return(
+            <div>{peopleItem}</div>
+        );
+            
+    }
+
+    function Image(props){
+        var picturestyle = {
+            marginLeft: 27,
+            marginTop: 20,
+            height: 150,
+            width: 150,
+            borderRadius:"50%" 
+        }
+    return(
+        <img src={props.img} alt="Profile Pic" style={picturestyle}/>
+    );
+    }
+
+    function Name(props) {
+        var namestyle = {
+            fontSize: 24,
+            textAlign:"center",
+            fontFamily:"Arial, Helvetica, sans-serif",
+            margin:20,
+        }
+        return(
+            <h1 style={namestyle}>{props.name}</h1>
+        );
+    }
+   
+   function GetConnected() {
+       var connectedstyle = {
+           marginLeft:15
+       }
+       return(
+           <div style={connectedstyle}>
+           <Like/>
+           <Share/>
+           <AddPerson/>
+           </div>
+       );
+   }
+
+   var iconstyle = {
+           margin:20
+        }
+   function Like() {
+       return(
+        <i className="far fa-thumbs-up" style={iconstyle}></i>
+       );
+   }
+
+   function Share() {
+       return(
+        <i className="far fa-share-square" style={iconstyle}></i>
+       );
+   }
+
+   function AddPerson() {
+       return(
+        <i className="fas fa-users" style={iconstyle}></i>
+       );
+   }
+
+
+   var people = [{name: "Rob", img: "https://pbs.twimg.com/profile_images/699422966556168193/zUm4vhAo.jpg"},
+                    {name: "Charles", img:"https://static.pexels.com/photos/38630/bodybuilder-weight-training-stress-38630.jpeg"},
+                    {name: "Natalie", img: "https://static.pexels.com/photos/509195/pexels-photo-509195.jpeg"},
+                    {name: "Sarah", img: "https://static.pexels.com/photos/324658/pexels-photo-324658.jpeg"},
+                    {name: "Kenny", img: "https://static.pexels.com/photos/325682/pexels-photo-325682.jpeg"},
+                    {name: "John", img: "https://static.pexels.com/photos/45882/man-crazy-funny-dude-45882.jpeg"},
+                    {name: "Alisha", img: "https://static.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg"}
+                    ];
+
+    ReactDOM.render(
+      <ProfilePage people={people}/>,
+        document.getElementById("app")
+    );
+
+</script>
+</body>
+</html>

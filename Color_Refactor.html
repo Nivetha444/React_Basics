@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- REACT LIBRARY -->
+    <script src="http://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+    <title>Styling Functional Component</title>
+</head>
+
+<body>
+    <div id="app">React has not yet Rendered!</div>
+
+    <script type="text/babel">
+
+    var Color = function(props) {
+        var colorItem = props.colors.map(function(color) {
+        var colorStyle = {
+         height:50,
+         width:150,
+         backgroundColor: color.color
+        };
+        return <div style={colorStyle} key={color.id}>{color.name}</div>
+        });
+        return(
+            <h1>{colorItem}</h1>
+        );
+    }
+
+    //  var Color = function(props) {
+    //      height:50,
+    //      width:150,
+    //      backgroungColor: props.color
+    //  }
+    //  return(
+    //      <h1 style={Color}>{props.name}</h1>
+    //  );
+    //   }
+
+    var colors = [{id:1, color:"green", name:"green"},
+                   {id:2, color:"blue", name:"blue"},
+                    {id:3, color:"yellow", name:"yellow"},
+                {id:4, color:"pink", name:"Pink"}];
+
+            ReactDOM.render(
+                <Color colors={colors}/>,
+            document.getElementById("app")
+        );
+  
+  </script>
+</body>
+</html>
